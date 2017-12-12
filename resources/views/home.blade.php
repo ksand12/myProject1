@@ -14,7 +14,29 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <form action="{{asset('home')}}" method="post" enctype="multipart/form-data">
+						{!! csrf_field()!!}
+						<div class="form-group">
+							<label for="name">Name</label>
+						
+							
+							<input type="text" class="form-control" name="name"/>
+							@if($errors->has('name'))
+								<div class="error">{{$errors->first('name')}}</div>
+							@endif
+
+						</div>
+						<div class="form-group">
+							<label for="body">Body</label>
+							<textarea id="body" name="body" class="form-control"></textarea>
+						</div>
+						<div class="form-group">
+							<label for="exampleInputFile">File input</label>
+							<input type="file" name="pict" id="exampleInputFile"/>
+						</div>
+						<button type="submit" class="btn btn-default">Submit</button>
+					</form>
+					
                 </div>
             </div>
         </div>
