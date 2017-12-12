@@ -14,7 +14,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::composer('*','App\Providers\ViewComposers\SiteComposer')
+        View::composer('*','App\Providers\ViewComposers\SiteComposer');
     }
 
     /**

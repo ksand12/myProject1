@@ -14,6 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::group(['middleware'=>['admin']], function(){
+	Route::get('/admin/index', 'AdminController@getIndex');
+});
 Route::get('/products','ProductController@getAll');
 Route::get('/product/{id}','ProductController@getOne');
 Route::get('/catalog/{id}','ProductController@getCat');
